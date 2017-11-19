@@ -50,27 +50,28 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    int index = 3 ;
     private void loadImages() {
         ImageView mImageView;
         mImageView = (ImageView) findViewById(R.id.img1);
-       // mImageView.setImageResource(R.drawable.img1level1);
-        mImageView.setImageResource(R.drawable.img3level1);
-//        mImageView.setImageResource(R.drawable.img4level1);
-//        mImageView.setImageResource(R.drawable.img5level1);
-//        mImageView.setImageResource(R.drawable.img6level1);
-
-
-
-
-
+        String variableValue = "img" + String.valueOf(index) + "level1";
+        mImageView.setImageResource(getResources().getIdentifier(variableValue, "drawable", getPackageName()));
+        index++;
+        if(index > 9){
+            index = 1;
+        }
     }
 
     private void checkAnswer() {
 
         String Answer = (String) newText.getText().toString();
         String answerUpperCase = Answer.toUpperCase();
-        if (answerUpperCase == hmap.get(3)) {
-            newText.setText("correct");
+        if (answerUpperCase.equals(hmap.get(index-1))) {
+            newText.setText("CORRECT!");
+            loadImages();
+
+        }else {
+            newText.setText("WRONG");
         }
        // for (int i = 0; i<=10; i++) {
 
