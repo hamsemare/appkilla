@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context="com.example.hamsemare.appkiller.MainActivity">
+    tools:context="com.example.hamsemare.appkiller.MainActivity"
+    tools:ignore="ExtraText">
 
     <TextView
         android:id="@+id/textView1"
@@ -18,37 +19,53 @@
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <EditText
-        android:layout_width="418dp"
-        android:layout_height="197dp"
+        android:id="@+id/edit"
+        android:layout_width="357dp"
+        android:layout_height="192dp"
         android:layout_marginBottom="34dp"
-        android:layout_marginTop="79dp"
+        android:layout_marginTop="50dp"
+        android:clickable="false"
         android:ems="10"
         android:inputType="text|textPersonName"
         android:text="APP KILLA"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
 
-        android:textSize="85dip"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="70dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.039" />
 
     <Button
         android:id="@+id/ready_button"
-        android:layout_width="259dp"
-        android:layout_height="170dp"
-        android:layout_marginBottom="131dp"
-        android:clickable="true"
-        android:text="Ready"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:text="START"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-        android:textSize="30dip"
+    <EditText
+        android:id="@+id/info"
+        android:layout_width="304dp"
+        android:layout_height="79dp"
+        android:ems="10"
+        android:inputType="textMultiLine|textWebEditText"
+        android:text="Warning, if you proceed and time runs out, phone will lock. We are not liable for any damages "
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1"
-        app:layout_constraintVertical_bias="0.975" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.895" />
 
 </android.support.constraint.ConstraintLayout>
