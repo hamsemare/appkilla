@@ -64,7 +64,9 @@ public class GameActivity extends AppCompatActivity {
                                 EditText Timer = (EditText)findViewById(R.id.Timer);
                                 long current_time = System.currentTimeMillis();
                                 long time_left = done_time - current_time;
-                                Timer.setText(String.valueOf((float)time_left/1000));
+                                if (time_left>0) {
+                                    Timer.setText(String.valueOf( time_left / 1000));
+                                }
                             }
                         });
                     }
@@ -94,8 +96,14 @@ public class GameActivity extends AppCompatActivity {
         String Answer = (String) newText.getText().toString();
         String answerUpperCase = Answer.toUpperCase();
         if (answerUpperCase.equals(hmap.get(index-1))) {
-            newText.setText("CORRECT!");
-            loadImages();
+
+            if (System.currentTimeMillis()>=done_time) {
+                newText.setText("TOO LATE");
+            }else {
+                newText.setText("CORRECT!");
+                loadImages();
+
+            }
 
         }else {
             newText.setText("WRONG");
