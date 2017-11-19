@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="292dp"
         android:layout_marginStart="112dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintBottom_toTopOf="@+id/guessButton"
+        app:layout_constraintStart_toStartOf="@+id/guess"
+        app:layout_constraintTop_toBottomOf="@+id/guess" />
 
     <EditText
         android:layout_width="418dp"
