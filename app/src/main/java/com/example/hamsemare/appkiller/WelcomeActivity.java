@@ -25,7 +25,10 @@ public class WelcomeActivity extends AppCompatActivity {
         });
     }
 
-    private void launchHomeFeed() {startActivity(new Intent(this, GameActivity.class));}
+    private void launchHomeFeed() {
+        startActivity(new Intent(this, GameActivity.class));
+        finish();
+    }
 
 }
 

@@ -1,10 +1,6 @@
 package com.example.hamsemare.appkiller;
 
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.os.PowerManager;
-import android.os.SystemClock;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,6 +51,9 @@ public class GameActivity extends AppCompatActivity {
                                 if (time_left>0) {
                                     time.setText(String.valueOf( time_left / 1000));
                                 }
+                                if (System.currentTimeMillis()>= done_time) {
+                                    finish();
+                                }
                             }
                         });
                     }
@@ -83,12 +82,6 @@ public class GameActivity extends AppCompatActivity {
         String Answer = (String) newText.getText().toString();
         String answerUpperCase = Answer.toUpperCase();
 
-        if (System.currentTimeMillis()>= done_time) {
-            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-            PowerManager.WakeLock wl= pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "My wakelook");
-            wl.acquire();
-
-        }
 
         if (answerUpperCase.equals(answers[index-2])) {
             newText.setText("CORRECT!");
