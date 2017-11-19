@@ -17,7 +17,7 @@ public class GameActivity extends AppCompatActivity {
 
     EditText newText;
     Button GuessButton;
-
+    long done_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,11 @@ public class GameActivity extends AppCompatActivity {
         hmap.put(9,"BAT");
         hmap.put(10,"CAN");
 
+        done_time = System.currentTimeMillis() + 30*1000;
 
          newText = (EditText) findViewById(R.id.guess);
+
+
          GuessButton = (Button) findViewById(R.id.guessButton);
          GuessButton.setOnClickListener(new View.OnClickListener()  {
             @Override
@@ -47,6 +50,30 @@ public class GameActivity extends AppCompatActivity {
 
 
         loadImages();
+
+        Thread t = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                EditText Timer = (EditText)findViewById(R.id.Timer);
+                                long current_time = System.currentTimeMillis();
+                                long time_left = done_time - current_time;
+                                Timer.setText(String.valueOf((float)time_left/1000));
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        t.start();
 
     }
 
